@@ -2,142 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="favicon.ico">
-  <title>mubaFM — Premium Ethiopian & Islamic Live Radio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
-  <link rel='manifest' href='data:application/manifest+json,{"name":"mubaFM","short_name":"mubaFM","start_url":".","display":"standalone","background_color":"#08070c","theme_color":"#08070c","icons":[{"src":"https://via.placeholder.com/192x192/000000/ffffff?text=FM","sizes":"192x192","type":"image/png"}] }'>
-  <meta name="theme-color" content="#08070c">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>mubaFM — Ethiopian &amp; Islamic Live Radio</title>
+  <meta name="description" content="Live Ethiopian and Islamic radio, curated in one place.">
+  <link rel="canonical" href="https://mubafm.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mubafm.vercel.app/">
+  <meta property="og:image" content="https://mubafm.vercel.app/icons/icon-512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:site_name" content="mubaFM">
+  <meta property="og:title" content="mubaFM — Ethiopian &amp; Islamic Live Radio">
+  <meta property="og:description" content="Live Ethiopian and Islamic radio, curated in one place.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://mubafm.vercel.app/icons/icon-512.png">
+  <meta name="twitter:title" content="mubaFM — Ethiopian &amp; Islamic Live Radio">
+  <meta name="twitter:description" content="Live Ethiopian and Islamic radio, curated in one place.">
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#08080b">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="mubaFM">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Noto+Sans+Ethiopic:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
+<body id="top">
+  <noscript><p style="margin:0;padding:16px;text-align:center;background:#14110a;color:#ecd9a8;font-family:sans-serif">mubaFM needs JavaScript to play live radio. Please enable it and reload.</p></noscript>
+  <!-- Icon sprite: all interface icons live here (no emoji in the UI) -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.4-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M7 5h3.4v14H7zM13.6 5H17v14h-3.4z"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M6 5h2v14H6zM19 5.8v12.4a.7.7 0 0 1-1.1.57L9.6 12.57a.7.7 0 0 1 0-1.14l8.3-6.2A.7.7 0 0 1 19 5.8z"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M16 5h2v14h-2zM5 5.8v12.4a.7.7 0 0 0 1.1.57l8.3-6.2a.7.7 0 0 0 0-1.14L6.1 5.23A.7.7 0 0 0 5 5.8z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.6 2.6 5.3 5.8.85-4.2 4.1 1 5.8L12 16.9l-5.2 2.75 1-5.8-4.2-4.1 5.8-.85z"/></symbol>
+    <symbol id="i-vol-high" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M4 9.5v5h3.6l4.4 3.7V5.8L7.6 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.6 7.6 0 0 1 0 11"/></symbol>
+    <symbol id="i-vol-low" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M4 9.5v5h3.6l4.4 3.7V5.8L7.6 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6"/></symbol>
+    <symbol id="i-vol-mute" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M4 9.5v5h3.6l4.4 3.7V5.8L7.6 9.5z"/><path d="m16 9.5 5 5M21 9.5l-5 5"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.6A8 8 0 0 1 9.4 4a8 8 0 1 0 10.6 10.6z"/></symbol>
+    <symbol id="i-radio" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="12" rx="2.6"/><path d="m8 8 8.5-4.5"/><circle cx="9" cy="14" r="2.4"/><path d="M15 12.5h3M15 15.5h3"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.8v5M12 16.2v.1"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 14.5V4M8.3 7.4 12 3.7l3.7 3.7M8 10.5H6.5A1.5 1.5 0 0 0 5 12v6.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V12a1.5 1.5 0 0 0-1.5-1.5H16"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5.5 12.5 4.3 4.3L18.5 8"/></symbol>
+  </svg>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" id="brand-home" href="#top" aria-label="mubaFM, back to top">
+        <span class="brand-word"><span class="brand-gradient">muba</span><span>FM</span></span>
+        <span class="brand-geez" lang="am" aria-hidden="true">ሬዲዮ</span>
+      </a>
+      <div class="topbar-actions">
+        <button id="install-button" class="btn-install" type="button" hidden>Install app</button>
+      </div>
+    </div>
+  </header>
 
   <div class="page-shell">
-    <header class="topbar">
-      <div class="brand">
-        <span class="brand-gradient">muba</span><span>FM</span>
-      </div>
-      <div class="topbar-center" aria-hidden="true">
-        <div class="status-wave">
-          <span></span><span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <div class="topbar-actions">
-        <button id="install-button" class="install-btn hidden" type="button">Install App</button>
-        <div class="signal-shell">
-          <span class="signal-label">Net</span>
-          <div class="signal-bars" id="network-strength">
-            <span></span><span></span><span></span>
-          </div>
-        </div>
-      </div>
-    </header>
-
     <main class="app-grid">
-      <section class="panel panel-left">
-        <article class="glass-card now-playing-card">
-          <div class="card-header">
-            <div>
-              <p class="eyebrow">Now Playing</p>
-              <h1 id="now-title">Choose a station</h1>
-            </div>
-            <div class="pill live-pill hidden" id="live-pill"><span class="live-dot"></span>LIVE</div>
-          </div>
-          <div class="avatar-shell">
-            <div id="now-avatar" class="radio-avatar radio-pulse idle">
-              <span class="radio-ring"></span>
-              <span class="radio-ring"></span>
-              <span class="radio-ring"></span>
-              <span class="radio-ring"></span>
-              <span class="radio-center"></span>
+      <section class="panel panel-left" aria-label="Now playing">
+        <article class="now-card" id="now-card" data-status="idle">
+          <!-- Ambient backdrop: the current artwork, enlarged and blurred (two layers so it cross-fades) -->
+          <div class="np-backdrop" id="np-backdrop" aria-hidden="true"><span class="np-bg"></span><span class="np-bg"></span></div>
+          <div class="np-top">
+            <p class="eyebrow">Now playing</p>
+            <div class="np-actions">
+              <span class="live-pill" id="live-pill"><span class="live-dot" aria-hidden="true"></span>Live</span>
+              <button id="btn-share" class="np-icon-btn" type="button" aria-label="Share this station" title="Share this station" hidden><svg class="ic"><use href="#i-share"/></svg></button>
             </div>
           </div>
-          <div class="station-meta">
-            <span class="badge" id="now-category">Premium Radio</span>
-            <span class="badge badge-soft" id="now-frequency">—</span>
+          <span class="sr-only" id="share-status" role="status" aria-live="polite"></span>
+
+          <div class="np-art">
+            <div class="art art-xl" id="now-art"></div>
           </div>
-          <div class="waveform waveform-large hidden" id="now-waveform">
-            <span></span><span></span><span></span><span></span><span></span>
+
+          <div class="np-meta">
+            <p class="np-cat" id="now-category">Live radio</p>
+            <h1 id="now-title">Choose a station</h1>
+            <p class="np-sub" id="now-sub">Pick one from the list to start listening</p>
           </div>
-          <div class="control-row">
-            <button id="btn-prev" class="control-btn small-btn" type="button" aria-label="Previous station">‹</button>
-            <button id="btn-play" class="control-btn play-btn" type="button" aria-label="Play / pause">▶</button>
-            <button id="btn-next" class="control-btn small-btn" type="button" aria-label="Next station">›</button>
+
+          <p class="np-status" id="player-status" role="status" aria-live="polite">Select a station to begin.</p>
+
+          <div class="controls">
+            <button id="btn-prev" class="ctl ctl-side" type="button" aria-label="Previous station"><svg class="ic"><use href="#i-prev"/></svg></button>
+            <button id="btn-play" class="ctl ctl-main" type="button" aria-label="Play"><svg class="ic"><use href="#i-play"/></svg></button>
+            <button id="btn-next" class="ctl ctl-side" type="button" aria-label="Next station"><svg class="ic"><use href="#i-next"/></svg></button>
           </div>
-          <div class="volume-panel">
-            <div class="volume-label"><span class="volume-icon" id="volume-icon">🔊</span><span>Volume</span></div>
-            <div class="volume-slider">
-              <input id="volume-control" type="range" min="0" max="1" step="0.01" value="0.75">
-              <span id="volume-value">75%</span>
-            </div>
+
+          <div class="volume">
+            <button id="volume-icon" class="vol-btn" type="button" aria-label="Mute"><svg class="ic"><use href="#i-vol-high"/></svg></button>
+            <input id="volume-control" type="range" min="0" max="1" step="0.01" value="0.75" aria-label="Volume">
+            <output id="volume-value" for="volume-control">75%</output>
           </div>
-          <div class="sleep-panel">
-            <div class="sleep-header">
-              <span class="sleep-icon">🌙</span>
-              <span class="sleep-label">Sleep Timer</span>
+
+          <details class="sleep" id="sleep">
+            <summary>
+              <svg class="ic"><use href="#i-moon"/></svg>
+              <span class="sleep-label">Sleep timer</span>
               <span class="sleep-status" id="sleep-status">Off</span>
+              <svg class="ic sleep-chev"><use href="#i-chevron"/></svg>
+            </summary>
+            <div class="sleep-body">
+              <div class="sleep-presets" id="sleep-presets" role="group" aria-label="Sleep timer length">
+                <button class="chip" data-mins="15" type="button" aria-pressed="false">15 min</button>
+                <button class="chip" data-mins="30" type="button" aria-pressed="false">30 min</button>
+                <button class="chip" data-mins="60" type="button" aria-pressed="false">1 hr</button>
+                <button class="chip" data-mins="90" type="button" aria-pressed="false">1.5 hr</button>
+                <button class="chip is-active" data-mins="0" type="button" aria-pressed="true">Off</button>
+              </div>
+              <div class="sleep-bar" id="sleep-bar" hidden><div class="sleep-bar-fill" id="sleep-bar-fill"></div></div>
             </div>
-            <div class="sleep-presets" id="sleep-presets">
-              <button class="sleep-preset" data-mins="15" type="button">15m</button>
-              <button class="sleep-preset" data-mins="30" type="button">30m</button>
-              <button class="sleep-preset" data-mins="60" type="button">1h</button>
-              <button class="sleep-preset" data-mins="90" type="button">1.5h</button>
-              <button class="sleep-preset active" data-mins="0" type="button">Off</button>
-            </div>
-            <div class="sleep-countdown-bar hidden" id="sleep-bar">
-              <div class="sleep-bar-fill" id="sleep-bar-fill"></div>
-              <span class="sleep-time-left" id="sleep-time-left">00:00</span>
-            </div>
-          </div>
-          <div class="status-line">
-            <p id="player-status">Ready for premium sound.</p>
-          </div>
+          </details>
         </article>
       </section>
 
-      <section class="panel panel-right">
-        <article class="glass-card station-browser-card">
-          <div class="browser-header">
+      <section class="panel panel-right" aria-label="Stations">
+        <article class="browser">
+          <div class="browser-head">
             <div>
-              <p class="eyebrow">Stations</p>
-              <h2>Curated Live Radio</h2>
+              <p class="eyebrow">Stations <span class="geez" lang="am">· ጣቢያዎች</span></p>
+              <h2>Curated live radio</h2>
             </div>
-            <div class="count-pill"><span id="station-count">0</span> stations</div>
+            <p class="count" aria-live="polite"><span id="station-count">0</span> <span id="station-count-label">stations</span></p>
           </div>
+
           <div class="search-row">
-            <label class="search-input-shell">
-              <span class="search-icon">🔍</span>
-              <input id="search-input" type="search" placeholder="Search stations..." autocomplete="off">
-            </label>
-            <button id="favorites-toggle" class="icon-button" type="button" aria-pressed="false" title="Show favorites only">★</button>
+            <div class="search">
+              <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+              <input id="search-input" type="search" placeholder="Search by name, Amharic name or frequency" autocomplete="off" spellcheck="false" aria-label="Search stations">
+              <button id="search-clear" class="search-clear" type="button" aria-label="Clear search" hidden><svg class="ic"><use href="#i-x"/></svg></button>
+            </div>
+            <button id="favorites-toggle" class="fav-filter" type="button" aria-pressed="false" aria-label="Show favorites only" title="Favorites only"><svg class="ic"><use href="#i-star"/></svg></button>
           </div>
-          <div class="tabs" id="category-tabs">
-            <button class="tab active" data-category="All" type="button">All</button>
-            <button class="tab" data-category="Ethiopian Radio" type="button">🇪🇹 Ethiopian</button>
-            <button class="tab" data-category="Music Channels" type="button">🎵 Music</button>
-            <button class="tab" data-category="Islamic / Quran" type="button">🕌 Quran</button>
+
+          <div class="tabs" id="category-tabs" role="group" aria-label="Station category">
+            <button class="tab is-active" data-category="All" type="button" aria-pressed="true">All</button>
+            <button class="tab" data-category="Ethiopian Radio" type="button" aria-pressed="false">Ethiopian</button>
+            <button class="tab" data-category="Music Channels" type="button" aria-pressed="false">Music</button>
+            <button class="tab" data-category="Islamic / Quran" type="button" aria-pressed="false">Quran</button>
           </div>
+
           <div class="station-groups" id="station-groups"></div>
         </article>
+
+        <footer class="site-footer">Made with care by muba</footer>
       </section>
     </main>
+  </div>
 
-    <footer class="site-footer">
-      <span>Made with</span>
-      <span class="heart">❤️</span>
-      <span>by muba</span>
-    </footer>
+  <!-- Mini player: phones and tablets, once the full player has scrolled out of view -->
+  <div class="mini" id="mini-player" role="region" aria-label="Mini player">
+    <button class="mini-info" id="mini-info" type="button" aria-label="Back to full player">
+      <span class="art art-mini" id="mini-art"></span>
+      <span class="mini-text">
+        <span class="mini-title" id="mini-title">Choose a station</span>
+        <span class="mini-sub" id="mini-sub">mubaFM</span>
+      </span>
+    </button>
+    <div class="mini-controls">
+      <button id="mini-prev" class="mini-btn" type="button" aria-label="Previous station"><svg class="ic"><use href="#i-prev"/></svg></button>
+      <button id="mini-play" class="mini-btn mini-play" type="button" aria-label="Play"><svg class="ic"><use href="#i-play"/></svg></button>
+      <button id="mini-next" class="mini-btn" type="button" aria-label="Next station"><svg class="ic"><use href="#i-next"/></svg></button>
+    </div>
   </div>
 
   <audio id="main-player" preload="none"></audio>
-  <script src="index.js"></script>
+  <script src="js/stations.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
